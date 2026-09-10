@@ -1,0 +1,10 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import PostCard from '../../components/PostCard.astro';
+import Icon from '../../components/Icon.astro';
+import { entries } from '../../lib/content';
+const posts = await entries('blog');
+const categories = [...new Set(posts.map(p => p.data.category))];
+---
+<Base title="博客"><div class="page-wrap"><PageHead en="THE BLOG" title="文字与想法" description="研究的线索、代码的注脚，以及生活中的偶尔停顿。" /><div class="blog-tools" hidden><div class="filters" aria-label="文章分类"><button class="filter active" data-filter="" aria-pressed="true">全部 <span>{posts.length}</span></button>{categories.map(c => <button class="filter" data-filter={c} aria-pressed="false">{c}</button>)}</div><label class="search-field"><Icon name="search" /><input type="search" id="post-search" placeholder="搜索文章…" aria-label="搜索文章标题、摘要、分类与标签" /></label></div><p class="search-count" aria-live="polite">共 {posts.length} 篇文章</p><div class="post-list">{posts.map(p => <PostCard entry={p} />)}</div><div id="no-results" class="empty-state" hidden>没有找到相关文章，试试其他关键词吧。<button class="button quiet" id="reset-search">清除筛选</button></div><a class="subscription-note" href="/feed.xml"><Icon name="rss" />让更新来找你，订阅 RSS <Icon /></a></div></Base>

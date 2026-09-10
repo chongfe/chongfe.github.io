@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import PostCard from '../components/PostCard.astro';
+import { entries } from '../lib/content';
+const posts = await entries('blog');
+const interests = [
+  { url: '/research/', icon: 'spark', color: '', label: '01 / RESEARCH', title: '科研与探索', description: '研究方向、论文阅读与项目记录' },
+  { url: '/docs/', icon: 'code', color: 'green', label: '02 / NOTES', title: '代码与笔记', description: '把理解写下来，让想法可复现' },
+  { url: '/blog/', icon: 'book', color: 'peach', label: '03 / BLOG', title: '博客与碎片', description: '记录技术、生活和偶然的灵感' },
+];
+---
+<Base><div class="home-wrap">
+  <section class="hero"><div class="hero-copy"><div class="eyebrow"><span></span>A LITTLE SPACE ON THE INTERNET</div><h1>Hi, I’m <span>R1ck5</span><span class="hero-dot">.</span></h1><p class="hero-subtitle">保持好奇，<br />慢慢探索<span class="purple">。</span></p><p class="hero-description">在研究与代码之间，收集想法的碎片。<br />这里是一方自留地，也是一本持续生长的笔记。</p><div class="hero-actions"><a class="button primary" href="/blog/">开始阅读 <Icon /></a><a class="button quiet" href="/research/">探索科研 <Icon name="external" /></a></div><div class="hero-note"><span class="status-dot"></span>Research · Code · Life</div></div><div class="hero-art"><img src="/assets/art.svg" width="540" height="440" alt="一页记录代码与能量函数的笔记，环绕着探索的轨道" fetchpriority="high" /><span class="art-caption">a work in progress, just like me.</span></div></section>
+  <section class="interest-grid" aria-label="探索的方向">{interests.map(item => <a href={item.url} class="interest-card"><span class:list={['interest-icon', item.color]}><Icon name={item.icon} /></span><div><span class="small-label">{item.label}</span><h2>{item.title}</h2><p>{item.description}</p></div><Icon name="external" /></a>)}</section>
+  <div class="home-bottom"><section class="latest"><div class="section-heading"><h2>最近写下<span>RECENT WRITING</span></h2><a href="/blog/">全部文章 <Icon /></a></div>{posts.length ? <PostCard entry={posts[0]} featured /> : <p class="empty-state">文章正在路上。</p>}</section><aside class="hello-card"><div class="section-heading"><h2>不止于此<span>ELSEWHERE</span></h2><span class="little-star">✳</span></div><p>互联网很大，<br />很高兴在这个小角落遇见你。</p><div class="elsewhere-links"><a href="/friends/">去朋友们的小站坐坐 <Icon name="external" /></a><a href="/feed.xml">通过 RSS 订阅更新 <Icon name="rss" /></a></div></aside></div>
+  <div class="home-signoff"><span></span>文字是思考留下的脚印。<span></span></div>
+</div></Base>

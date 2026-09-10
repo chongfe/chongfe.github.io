@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="440" viewBox="0 0 540 440" fill="none">
+<defs><pattern id="dots" width="23" height="23" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#b7a7ce" opacity=".35"/></pattern><linearGradient id="paper" x1="140" y1="80" x2="400" y2="370" gradientUnits="userSpaceOnUse"><stop stop-color="#fdfcfa"/><stop offset="1" stop-color="#f0eafa"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#65547e" flood-opacity=".09"/></filter></defs>
+<rect x="40" y="28" width="466" height="385" fill="url(#dots)"/>
+<circle cx="281" cy="218" r="160" fill="#ece5f5" opacity=".65"/>
+<ellipse cx="280" cy="223" rx="222" ry="92" transform="rotate(-25 280 223)" stroke="#baabcE" stroke-dasharray="5 7"/>
+<g transform="rotate(-8 272 222)" filter="url(#s)"><rect x="151" y="98" width="251" height="274" rx="14" fill="#e3d9ef" stroke="#c3b3d9"/><rect x="137" y="85" width="251" height="274" rx="14" fill="url(#paper)" stroke="#c3b3d9"/><path d="M137 128h251" stroke="#d6c9e6"/><circle cx="157" cy="107" r="4" fill="#b4a0cf"/><circle cx="173" cy="107" r="4" fill="#d0c1e2"/><circle cx="189" cy="107" r="4" fill="#ddd2e9"/><text x="337" y="112" fill="#a18bbb" font-family="monospace" font-size="11">01</text>
+<path d="m197 163-22 18 22 18m118-36 22 18-22 18m-51-40-14 46" stroke="#8264b5" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M175 238h82m-82 16h155m-155 16h127" stroke="#d2c5e1" stroke-width="6" stroke-linecap="round"/><rect x="175" y="295" width="67" height="23" rx="6" fill="#e5daf3"/><text x="188" y="310" fill="#8161b0" font-family="monospace" font-size="10">curious</text><path d="M306 305h23m-8-8 8 8-8 8" stroke="#9b85b7" stroke-width="2" stroke-linecap="round"/></g>
+<g transform="rotate(10 424 138)"><rect x="380" y="101" width="96" height="67" rx="12" fill="#f7f5ec" stroke="#d4cdb1"/><path d="m400 140 12-12 10 9 22-19m-13 0h13v13" stroke="#9aa976" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g transform="rotate(-12 104 307)"><rect x="59" y="274" width="91" height="66" rx="12" fill="#eee7f8" stroke="#ccbcdf"/><text x="78" y="313" font-family="Georgia,serif" font-style="italic" font-size="25" fill="#8b70ad">E(x)</text></g>
+<path d="M116 114v20m-10-10h20M434 290v16m-8-8h16" stroke="#aa95c3" stroke-width="2" stroke-linecap="round"/><circle cx="439" cy="244" r="6" fill="#a1b37a"/><circle cx="110" cy="221" r="4" fill="#b298d0"/><circle cx="328" cy="59" r="4" fill="#c9b7dd"/>
+</svg>

@@ -1,0 +1,14 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Icon from '../../components/Icon.astro';
+import { entries, entryUrl, formatDate } from '../../lib/content';
+const research = await entries('research');
+const directions = research.filter(e => e.data.kind === 'direction');
+const groups = [
+  { kind: 'paper', title: '论文与阅读', label: 'PAPERS', empty: '阅读记录正在积累，后续在这里更新。' },
+  { kind: 'project', title: '项目与实验', label: 'PROJECTS', empty: '项目与实验记录将在整理后发布。' },
+  { kind: 'note', title: '研究笔记', label: 'RESEARCH NOTES', empty: '这里留给推导、问题与尚在生长的想法。' },
+];
+---
+<Base title="科研"><div class="page-wrap"><PageHead en="RESEARCH & EXPLORATION" title="沿着问题探索" description="从一个问题出发，走向理解。记录研究方向、论文阅读与实验中的发现。" /><div class="research-intro"><span class="little-star">✳</span><p><strong>让直觉、推导与实验，慢慢相遇。</strong>围绕联想记忆、注意力机制与能量模型，整理可以反复回看的线索。</p></div><section><div class="section-heading"><h2>探索的方向<span>RESEARCH DIRECTIONS</span></h2><span class="muted">{directions.length} 个方向</span></div><div class="docs-grid">{directions.map((entry,i) => <a class="doc-card" href={entryUrl(entry)}><div class="doc-top"><span class="interest-icon"><Icon name={['spark','code','book'][i%3]} /></span><span class="small-label">0{i+1}</span></div><h2>{entry.data.title}</h2><p>{entry.data.description}</p><span class="text-link">查看方向 <Icon /></span></a>)}</div></section>{groups.map(group => { const items = research.filter(e => e.data.kind === group.kind); return <section class="research-section"><div class="section-heading"><h2>{group.title}<span>{group.label}</span></h2><span class="muted">{items.length} 篇记录</span></div>{items.length ? <div class="research-list">{items.map(entry => <div class="research-entry"><div><div class="post-meta"><span class="tag">{entry.data.category}</span><time datetime={entry.data.date.toISOString()}>{formatDate(entry.data.date)}</time>{entry.data.status && <span>{entry.data.status}</span>}</div><h3><a href={entryUrl(entry)}>{entry.data.title}</a></h3><p>{entry.data.description}</p></div><a href={entryUrl(entry)} aria-label={`阅读 ${entry.data.title}`}><Icon /></a></div>)}</div> : <div class="friends-empty"><span class="interest-icon"><Icon name={group.kind==='project'?'code':'book'} /></span><p>{group.empty}</p></div>}</section>; })}</div></Base>

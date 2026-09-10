@@ -1,0 +1,8 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Icon from '../../components/Icon.astro';
+import { entries, entryUrl } from '../../lib/content';
+const docs = await entries('docs');
+---
+<Base title="笔记"><div class="page-wrap"><PageHead en="THE NOTEBOOK" title="常翻常新" description="把零散的问题整理成路径，把学过的东西留在这里。" /><div class="docs-grid">{docs.map((d,i) => <a class="doc-card" href={entryUrl(d)}><div class="doc-top"><span class="interest-icon"><Icon name={i % 2 ? 'code' : 'book'} /></span><span class="small-label">NOTE / {String(i+1).padStart(2,'0')}</span></div><span class="tag">{d.data.category}</span><h2>{d.data.title}</h2><p>{d.data.description}</p><span class="text-link">打开笔记 <Icon /></span></a>)}</div><p class="muted end-note">笔记会持续修订。每一次回看，都可能有新的理解。</p></div></Base>

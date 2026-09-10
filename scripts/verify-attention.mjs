@@ -14,7 +14,13 @@ try {
   assert.equal((await page.goto(base + article)).status(), 200);
   await page.evaluate(() => document.fonts.ready);
   assert.equal(await page.locator('h1').count(), 1);
-  assert((await page.locator('article').innerText()).includes('总和为 1 既是约束，也是有用的工具。'));
+  const articleText = await page.locator('article').innerText();
+  for (const paragraph of [
+    '这篇文章从一个简单的问题出发：Softmax Attention 的权重为什么一定要加起来等于 1？ 归一化让注意力变成候选之间的相对分配，因此无法在保持相对比例不变的同时，把所有内容权重一起缩小。Attention Sink 提供了一种可能的间接实现：如果某个位置吸收了大量权重，却几乎不向残差流提供有效内容，那么它就相当于替其余内容加上了一个标量门控。',
+    '沿着这个思路，概率单纯形与次概率单纯形给出了更直接的解释：标准 Attention 解决的是“读哪里”，而允许总质量小于 1，或者显式加入门控，则进一步解决“这次读多少、写多少”。Sparsemax 虽然可以让部分位置精确为零，但总权重仍然是 1，因此“稀疏选择”和“整体缩小”是两个不同的问题。',
+    '目前在我们的推导下，能得到的结论不是Softmax 的归一化不好，也不是 Sink 一定意味着设计缺陷。更准确地说，总和为 1 既是约束，也是有用的工具，它带来了竞争、归一化和输出尺度控制。Softmax未必是最优的设计方式，总和也未必要等于1，或许仍有一些的迭代空间。',
+  ]) assert(articleText.includes(paragraph), 'Author-approved paragraph missing or changed');
+  assert(!articleText.includes('我更关心的尝试是：'), 'Old ending is still present');
   assert.equal(await page.locator('.katex-error').count(), 0);
   assert.equal(await page.locator('.katex-display .tag').count(), 46);
   const equationCount = await page.locator('.katex').count();

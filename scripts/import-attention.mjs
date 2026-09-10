@@ -10,7 +10,7 @@ const raw = fs.readFileSync(source, 'utf8').replace(/^\uFEFF/, '').replaceAll('\
 const title = '# Attention 为什么一定要加起来等于 1？（上）';
 assert(raw.startsWith(title + '\n'), 'Unexpected article title');
 assert(raw.includes('## 九、小结'), 'Missing final summary');
-assert(raw.includes('总和为 1 既是约束，也是有用的工具。'), 'Missing final revision');
+assert(raw.includes('Softmax未必是最优的设计方式，总和也未必要等于1，或许仍有一些的迭代空间。'), 'Missing author-approved final revision');
 let body = raw.slice(title.length).trimStart();
 body = body.replaceAll('(assets/streamingllm_schemes.png)', '(/images/blog/attention-sum-to-one-part-1/streamingllm_schemes.png)');
 body = body.replace('`assets/streamingllm_LICENSE.txt`', '[MIT 许可文本](/images/blog/attention-sum-to-one-part-1/streamingllm_LICENSE.txt)');

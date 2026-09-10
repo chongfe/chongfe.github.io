@@ -27,6 +27,6 @@ const fullTitle = title ? `${title} · ${site.name}` : site.title;
       <div class="header-actions"><a class="github-link" href={site.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub（新窗口）"><Icon name="github" /><span>GitHub</span><Icon name="external" /></a><span class="divider"></span><button class="icon-button" id="theme-toggle" hidden aria-label="切换深色模式" title="切换主题"><Icon name="sun" /></button></div>
     </div></header>
     <main id="main"><slot /></main>
-    <footer class="site-footer"><div class="footer-top"><a class="brand" href="/">R1ck5<span class="brand-dot">.</span></a><span>保持好奇，慢慢探索。</span><div><a href="/feed.xml"><Icon name="rss" /> RSS</a><a href={site.repository} target="_blank" rel="noopener noreferrer">本站源码 <Icon name="external" /></a></div></div><div class="footer-bottom"><span>© {new Date().getUTCFullYear()} R1ck5 · Built with curiosity.</span><span>在自己的角落，记录与连接 <span class="tiny-spark">✳</span></span></div></footer>
+    <footer class="site-footer"><div class="footer-top"><a class="brand" href="/">R1ck5<span class="brand-dot">.</span></a><span>{site.tagline}</span><div><a href="/feed.xml"><Icon name="rss" /> RSS</a><a href={site.repository} target="_blank" rel="noopener noreferrer">本站源码 <Icon name="external" /></a></div></div><div class="footer-bottom"><span>© {new Date().getUTCFullYear()} R1ck5 · Built with curiosity.</span><span>在自己的角落，记录与连接 <span class="tiny-spark">✳</span></span></div></footer>
   </body>
 </html>

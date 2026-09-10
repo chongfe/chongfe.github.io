@@ -1,6 +1,6 @@
 ---
 title: Attention 为什么一定要加起来等于 1？（上）
-description: 从 Attention Sink 出发，理解归一化、Sparsemax 与门控：选哪些内容，以及这次写入多少。
+description: 从 Attention Sink 出发，理解归一化、Sparsemax 与门控
 date: 2026-09-10
 category: 科研
 tags: [Attention, Softmax, Attention Sink, Sparsemax, 门控]

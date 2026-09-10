@@ -14,6 +14,7 @@ try {
   assert.equal((await page.goto(base + article)).status(), 200);
   await page.evaluate(() => document.fonts.ready);
   assert.equal(await page.locator('h1').count(), 1);
+  assert.equal(await page.locator('.article-header > p').innerText(), '从 Attention Sink 出发，理解归一化、Sparsemax 与门控');
   const articleText = await page.locator('article').innerText();
   for (const paragraph of [
     '这篇文章从一个简单的问题出发：Softmax Attention 的权重为什么一定要加起来等于 1？ 归一化让注意力变成候选之间的相对分配，因此无法在保持相对比例不变的同时，把所有内容权重一起缩小。Attention Sink 提供了一种可能的间接实现：如果某个位置吸收了大量权重，却几乎不向残差流提供有效内容，那么它就相当于替其余内容加上了一个标量门控。',

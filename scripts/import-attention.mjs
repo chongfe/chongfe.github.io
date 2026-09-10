@@ -21,7 +21,7 @@ const dest = path.join(root, 'src/content/blog/attention-sum-to-one-part-1.md');
 const old = fs.existsSync(dest) ? fs.readFileSync(dest, 'utf8') : '';
 const published = old.match(/^date: (.+)$/m)?.[1] || '2026-09-10';
 const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
-const header = `---\ntitle: Attention 为什么一定要加起来等于 1？（上）\ndescription: 从 Attention Sink 出发，理解归一化、Sparsemax 与门控：选哪些内容，以及这次写入多少。\ndate: ${published}\n${today !== published ? `updated: ${today}\n` : ''}category: 科研\ntags: [Attention, Softmax, Attention Sink, Sparsemax, 门控]\ndraft: false\n---\n\n`;
+const header = `---\ntitle: Attention 为什么一定要加起来等于 1？（上）\ndescription: 从 Attention Sink 出发，理解归一化、Sparsemax 与门控\ndate: ${published}\n${today !== published ? `updated: ${today}\n` : ''}category: 科研\ntags: [Attention, Softmax, Attention Sink, Sparsemax, 门控]\ndraft: false\n---\n\n`;
 const assetDir = path.join(root, 'public/images/blog/attention-sum-to-one-part-1');
 for (const name of ['streamingllm_schemes.png', 'streamingllm_LICENSE.txt']) {
   const asset = path.join(path.dirname(source), 'assets', name);

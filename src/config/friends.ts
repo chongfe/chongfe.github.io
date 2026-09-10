@@ -6,7 +6,18 @@ export interface Friend {
 }
 
 // 在数组内添加对象即可，卡片会自动生成。示例见 README。
-export const friends: Friend[] = [];
+export const friends: Friend[] = [
+  {
+    name: "Eric's Blog Site",
+    url: 'https://www.ericzhuestc.site/',
+    description: 'Be Creative, Be Critical',
+  },
+  {
+    name: "ZzzRemake's 自留地",
+    url: 'https://zzzremake.github.io/site/',
+    description: 'Do something different.',
+  },
+];
 
 // 单向收藏与已确认友链分开维护。
 export const bookmarks: Friend[] = [

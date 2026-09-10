@@ -16,13 +16,13 @@ const fullTitle = title ? `${title} · ${site.name}` : site.title;
     <link rel="canonical" href={new URL(pathname, site.url)} />
     <meta property="og:title" content={fullTitle} /><meta property="og:description" content={description} /><meta property="og:type" content={article ? 'article' : 'website'} />
     <meta property="og:url" content={new URL(pathname, site.url)} /><meta property="og:image" content={`${site.url}/assets/social.png`} /><meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" /><link rel="alternate" type="application/rss+xml" title="R1ck5 RSS" href="/feed.xml" />
+    <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32" /><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" /><link rel="alternate" type="application/rss+xml" title="R1ck5 RSS" href="/feed.xml" />
     <script is:inline src="/assets/theme.js"></script><script is:inline src="/assets/app.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">跳到正文</a>
     <header class="site-header"><div class="header-inner">
-      <a class="brand" href="/" aria-label="R1ck5 首页"><span class="brand-mark">R<span>•</span></span><span>R1ck5<span class="brand-dot">.</span></span></a>
+      <a class="brand" href="/" aria-label="R1ck5 首页"><span class="brand-mark"><img src={site.avatar} width="36" height="36" alt="" /></span><span>R1ck5<span class="brand-dot">.</span></span></a>
       <nav aria-label="主导航">{site.navigation.map(({ href, label }) => <a href={href} aria-current={(href === '/' ? pathname === '/' : pathname.startsWith(href)) ? 'page' : undefined}>{label}</a>)}</nav>
       <div class="header-actions"><a class="github-link" href={site.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub（新窗口）"><Icon name="github" /><span>GitHub</span><Icon name="external" /></a><span class="divider"></span><button class="icon-button" id="theme-toggle" hidden aria-label="切换深色模式" title="切换主题"><Icon name="sun" /></button></div>
     </div></header>

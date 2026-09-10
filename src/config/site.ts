@@ -1,5 +1,6 @@
 export const site = {
   name: 'R1ck5',
+  avatar: '/assets/avatar.jpg',
   title: 'R1ck5 · 保持好奇，慢慢探索',
   url: 'https://chongfe.github.io',
   description: '记录研究、代码与生活。保持好奇，慢慢探索。',

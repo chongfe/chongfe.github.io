@@ -19,6 +19,12 @@ export const friends: Friend[] = [
     description: 'Do something different.',
     avatar: '/images/friends/zzzremake.png',
   },
+  {
+    name: "SAKE's Field Notes",
+    url: 'https://sakee.cn/',
+    description: '技术、诗歌、随笔，以及还没想明白的问题',
+    avatar: '/images/friends/sakee.webp',
+  },
 ];
 
 // 单向收藏与已确认友链分开维护。
